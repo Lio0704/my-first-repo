@@ -1,0 +1,109 @@
+Git mini exo — Answers
+
+## Part 1: Setup & config
+
+First, I checked that Git was installed on my computer with:
+git --version 
+where git version 2.50.1 (Apple Git-155)
+
+Then I configured my Git username and email with:
+git config --global user.name "Lio0704"
+git config --global user.email "lio-li-yao.suchet-wang@student-cs.fr"
+
+Part 2: Create Your First Repository
+
+I used the following commands:
+mkdir my-first-repo
+cd my-first-repo
+git init
+touch readme.txt
+
+Part 3: Your First Commit
+
+To see the current state of the repository, I used:
+git status
+
+To stage the file:
+git add readme.txt
+
+To commit it with the message "Add readme file":
+git commit -m "Add readme file"
+
+To see the commit history:
+git log
+
+Part 4: Make Changes
+
+I edited readme.txt and added a new line of text.
+After that, git status showed that the file had been modified but not staged yet. This means Git detected changes in the file, but those changes were not ready to be committed until I added them to the staging area.
+
+Then I staged and committed the changes with:
+git add readme.txt
+git commit -m "Update readme file"
+
+At this point, I had 2 commits.
+
+Part 5: Exploration
+	•	git diff shows the differences between the current version of the file and the previous committed version.
+	•	git log --oneline shows a shorter and simpler version of the commit history, with one line per commit.
+
+Part 6: Working with Branches
+
+To list all branches: git branch
+To create a branch called feature-script: git branch feature-script
+To switch to it: git switch feature-script
+To create and switch to a new branch called dev in one command: git switch -c dev
+Then I switched back to feature-script: git switch feature-script
+To verify the current branch, I used: git branch
+
+Part 7: Create a Bash Script on a Branch
+
+On the feature-script branch, I created install.sh: touch install.sh
+
+Then I added this content: #!/bin/bash
+echo "Starting installation..."
+brew update
+brew install wget
+echo "Installation complete!"
+
+I made the script executable with: chmod +x install.sh
+
+Then I staged and committed it: 
+git add install.sh
+git commit -m "Add install script"
+
+To check the history on this branch: git log --oneline
+
+Part 8: Merge Branches
+
+I switched back to the main branch: git switch main
+Before merging, install.sh was not present because it only existed in the feature-script branch.
+
+To merge the branch into main, I used: git merge feature-script
+
+After that, install.sh appeared in the directory.
+The commit history now also included the commit from the feature branch.
+
+Finally, I deleted the branch with: git branch -d feature-script
+
+Part 9: Push to GitHub
+
+After creating a repository on GitHub called my-first-repo, I linked it with: git remote add origin https://github.com/your-username/my-first-repo.git
+
+Then I pushed my commits with:
+git push -u origin main
+
+After refreshing GitHub, I could see all my files and commits online.
+
+Part 10: Delete and Clone
+
+I moved outside the project folder with: cd ..
+Then I deleted the local repository: rm -rf my-first-repo 
+
+To clone it again from GitHub:
+git clone https://github.com/your-username/my-first-repo.git
+
+Finally, I entered the cloned folder and checked the files:
+cd my-first-repo
+ls
+
