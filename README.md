@@ -1,4 +1,2 @@
 # test_github_repo
-some description
-
-wow
+This is my first Git repository.
