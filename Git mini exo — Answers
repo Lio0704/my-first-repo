@@ -10,7 +10,7 @@ Then I configured my Git username and email with:
 git config --global user.name "Lio0704"
 git config --global user.email "lio-li-yao.suchet-wang@student-cs.fr"
 
-Part 2: Create Your First Repository
+## Part 2: Create Your First Repository
 
 I used the following commands:
 mkdir my-first-repo
